@@ -1,0 +1,79 @@
+Name: Leina Sha
+NetID: ls476
+
+Username for website: linkena379
+Password for website: birdpoop
+
+Relational Database:
+
+I have three relations in my database (the fourth one is 'Books' which I did just to test 
+out stuff, I never use it in the website).
+Since I cannot make things underlined in txt files, I will just say it is a primary key. 
+
+1) Photos(pid:int (PRIMARY KEY), url:String, caption:String, date:Date)
+
+2) PhotoinAlbumlog (aid:int (PRIMARY KEY), pid:int(PRIMARY KEY))
+
+3) PhotoAlbums (aid:int(PRIMARY KEY), title:String, created:Date, modified:Date, coverphoto:String)
+
+Relation Photos contains the information about each photo I have on the database, relation Albums
+has information about each album I have on the database. Relation PhotoinAlbumlog holds information
+about which photos I have in which album, it contains an aid that says which album with a pid that
+says which photo it holds. 
+
+PhotoinAlbumlog needs to have both an aid and a pid to define one row uniquely, so both are primary keys. 
+aid of PhotoinAlbumlog is a foreign key of PhotoAlbums, and pid in PhotoinAlbumlog is a foreign key of Photos. 
+
+To access each PhotoAlbum I just go through the Albums database. To access each photo in the photo album
+I join Photos with PhotoinAlbumlog and with PhotoAlbums, and find the list of photos where the aid is the
+aid of the particular album. 
+
+To delete/copy a photo from one album, I edit PhotoinAlbumlog. 
+
+
+Design Rationale:
+
+For my website I wanted to create a feeling of light and dreaminess, so that when you are viewing
+your old photos you are like in a dream. That is why I chose the background picture filled with
+lights, the pastel coloring and the fancy writing. 
+
+There are three pages, home page (detailing basic information about the project), albums view page
+and admin page (which can not be viewed by casual visitors).
+
+I allow visitors to view a page with all the albums in it (so that they can choose
+which album they want). Each album has a coverphoto to give the user a taste of what it holds. 
+Once you click into each album there will be a page full of thumbnail photos of that album that you clicked
+on. I put them all in one page so that the user can decide which photo they want to see and not 
+be forced to view them in an arbitrary order. There will also be information about the album 
+itself (date created, modified, etc, on the top of the page), so that you can look at the album properties.
+Then, when you click on each photo, you are brought to another place with a full size image of that photo. 
+Beneath that photo are the details about that photo (caption, date). 
+
+For my Ajax implementation, I put two buttons beneath the photo "Previous" and "Next", when you click
+on previous you will be taken to the previous photo in the album, when you click on next, you will 
+be taken to the next photo. If there is no previous or next, nothing will happen.
+
+If you are logged in, the admin page details everything you need to know to update, create or delete
+photo albums and/or photos. You can create albums in the admin page or upload photos. When you submit
+there is an arbitrary value of which photo you choose for the cover photo, and/or which photo
+album you upload the photo to. (This way the user will not be able to make mistakes) If you are not
+logged in, you cannot view the admin page.
+
+Then, if you are logged in, in the albums page, beneath each album you can view an additional button
+called "edit". If you click on it, it will take you to another page that can never be accessed otherwise. 
+If by some reason people stumble upon it, nothing will show, only a polite message to go somewhere else. 
+On this page there will be the details of each album, and below a form to change these details and a
+delete button. When an album is deleted PhotoinAlbumlog is changed, but the photos in Photos are not
+deleted and the actual photos on the database are not deleted either (this is because on photo can 
+be in mutiple albums). If you do not fill in anything to the form and submit, nothing will be
+changed. You do not have to fill in everything in the form for it to update the album details, 
+because you might only want to change one value of the album but not all. 
+
+The mechanism for editing photos is similar. Again, if photos are deleted, PhotoinAlbumlog is changed
+but Photos is not, and the actual photo is not deleted from the server. Editing photos also allows
+you to copy one photo to another album. Thus you can move photos to another album if you placed
+it incorrectly or want a copy of it. 
+
+
+Ajax feature: Allow the user to view the next photo and the previous photo in the
+album without reloading the page. 

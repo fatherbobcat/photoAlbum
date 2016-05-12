@@ -1,0 +1,77 @@
+body{
+font-family: "Tahoma", Arial, sans-serif;
+background-image:url('back.jpg');
+background-attachment:fixed;
+background-repeat:no-repeat;
+padding-left:3cm;
+padding-right:3cm;
+padding-bottom:3cm;
+min-width:800px;
+max-width:2000px;
+text-align:center;
+}
+div{
+text-align:center;
+}
+
+span.other{
+background-color:#F2D95C;
+font-family: "Tekton Pro Ext", Tahoma, sans-serif;
+border:2px solid;
+border-radius:2em;
+border-color:#F2784B;
+padding-left:0.5cm;
+padding-right:0.5cm;}
+
+span#current{
+background-color:#F2AA80;
+font-family: "Tekton Pro Ext", Tahoma, sans-serif;
+border:2px solid;
+border-radius:2em;
+border-color:#F2784B;
+padding-left:0.5cm;
+padding-right:0.5cm;}
+
+h4 a:link, h4 a:visited{
+text-decoration:none;
+color:#000000;
+}
+
+h4 a:hover{
+background-color: #F2AA80;
+text-decoration: underline;
+}
+
+p.wrongpass{
+color:#FF0000;
+text-align:center;
+}
+
+p.hidden{
+	display:none;
+}
+
+img.photothumbnail{
+border:5px solid;
+border-radius:2em;
+border-color:#F2784B;
+}
+
+div#disclaimer{
+text-align:left;
+margin-bottom:1cm;
+margin-top:0.5cm;}
+
+div.albumdisplay{
+float:left;
+margin-left:0.5cm;
+margin-right:0.5cm;
+margin-bottom:1cm;
+}
+
+h1{font-family: "Tekton Pro Ext", Tahoma, sans-serif;
+margin-top:1cm;}
+
+p#backbutton{
+clear:left;
+}
